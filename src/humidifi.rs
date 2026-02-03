@@ -128,16 +128,20 @@ pub struct PoolDataLayout;
 
 impl PoolDataLayout {
     /// Quote mint (XOR encrypted) - e.g., USDC
-    pub const QUOTE_MINT_OFFSET: usize = 384;
+    /// Offset: 0x180
+    pub const QUOTE_MINT_OFFSET: usize = 0x180;  // 384
     
     /// Base mint (XOR encrypted) - e.g., SOL
-    pub const BASE_MINT_OFFSET: usize = 416;
+    /// Offset: 0x1a0
+    pub const BASE_MINT_OFFSET: usize = 0x1a0;   // 416
     
-    /// Pool account (XOR encrypted)
-    pub const POOL_ACCOUNT_OFFSET: usize = 448;
+    /// Quote vault (XOR encrypted)
+    /// Offset: 0x1c0
+    pub const QUOTE_VAULT_OFFSET: usize = 0x1c0; // 448
     
-    /// Token account (XOR encrypted)
-    pub const TOKEN_ACCOUNT_OFFSET: usize = 480;
+    /// Base vault (XOR encrypted)
+    /// Offset: 0x1e0
+    pub const BASE_VAULT_OFFSET: usize = 0x1e0;  // 480
     
     /// Minimum pool data size
     pub const MIN_SIZE: usize = 512;
@@ -167,6 +171,52 @@ pub fn parse_base_mint(pool_data: &[u8]) -> Option<[u8; 32]> {
         .try_into().ok()?;
     
     Some(xor_decode_pubkey(&encrypted))
+}
+
+/// Parse quote vault from pool data
+#[inline(always)]
+pub fn parse_quote_vault(pool_data: &[u8]) -> Option<[u8; 32]> {
+    if pool_data.len() < PoolDataLayout::QUOTE_VAULT_OFFSET + 32 {
+        return None;
+    }
+    
+    let encrypted: [u8; 32] = pool_data[PoolDataLayout::QUOTE_VAULT_OFFSET..PoolDataLayout::QUOTE_VAULT_OFFSET + 32]
+        .try_into().ok()?;
+    
+    Some(xor_decode_pubkey(&encrypted))
+}
+
+/// Parse base vault from pool data
+#[inline(always)]
+pub fn parse_base_vault(pool_data: &[u8]) -> Option<[u8; 32]> {
+    if pool_data.len() < PoolDataLayout::BASE_VAULT_OFFSET + 32 {
+        return None;
+    }
+    
+    let encrypted: [u8; 32] = pool_data[PoolDataLayout::BASE_VAULT_OFFSET..PoolDataLayout::BASE_VAULT_OFFSET + 32]
+        .try_into().ok()?;
+    
+    Some(xor_decode_pubkey(&encrypted))
+}
+
+/// HumidiFi pool info (similar to Cetipoo's HumidifiInfo)
+pub struct HumidifiPoolInfo {
+    pub base_mint: [u8; 32],
+    pub quote_mint: [u8; 32],
+    pub base_vault: [u8; 32],
+    pub quote_vault: [u8; 32],
+}
+
+impl HumidifiPoolInfo {
+    /// Load pool info from account data
+    pub fn load(pool_data: &[u8]) -> Option<Self> {
+        Some(Self {
+            quote_mint: parse_quote_mint(pool_data)?,
+            base_mint: parse_base_mint(pool_data)?,
+            quote_vault: parse_quote_vault(pool_data)?,
+            base_vault: parse_base_vault(pool_data)?,
+        })
+    }
 }
 
 // ============================================
