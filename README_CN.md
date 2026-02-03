@@ -2,13 +2,13 @@
 
 [English](./README.md)
 
-Solana DEX 程序的 Pinocchio 兼容 CPI 客户端库，支持 33 个主流 DEX 协议。
+Solana DEX 程序的 Pinocchio 兼容 CPI 客户端库，支持 35 个主流 DEX 协议。
 
 ## 特性
 
 - **纯 Pinocchio 实现**：极致轻量
 - **no_std 兼容**：可用于资源受限环境
-- **33 个 DEX 协议**：覆盖 Solana 生态主流 DEX
+- **35 个 DEX 协议**：覆盖 Solana 生态主流 DEX
 - **类型安全**：所有指令参数均有严格类型定义
 
 ## 项目结构
@@ -18,7 +18,7 @@ dex-pinocchio-cpi/
 ├── Cargo.toml              # 项目配置
 ├── README.md               # 英文文档
 ├── README_CN.md            # 本文档
-├── dex_idls/               # IDL 源文件（33 个 DEX）
+├── dex_idls/               # IDL 源文件（34 个 DEX）
 │   ├── Pump_fun.json
 │   ├── Raydium_CLMM.json
 │   ├── Meteora_DLMM.json
@@ -28,7 +28,7 @@ dex-pinocchio-cpi/
     ├── pump_fun.rs         # Pump.fun CPI 模块
     ├── raydium_clmm.rs     # Raydium CLMM CPI 模块
     ├── meteora_dlmm.rs     # Meteora DLMM CPI 模块
-    └── ...                 # 共 33 个 DEX 模块
+    └── ...                 # 共 34 个 DEX 模块
 ```
 
 ## 支持的 DEX 协议
@@ -45,6 +45,7 @@ dex-pinocchio-cpi/
 | `guacswap` | Guacswap | `Gswppe6ERWKpUTXvRPfXdzHhiCyJvLadVvXGfdpBqcE1` |
 | `heaven` | Heaven | `HEAVENoP2qxoeuF8Dj2oT1GHEnu49U5mJYkdeC8BAX2o` |
 | `helium_network` | Helium Network | `treaf4wWBBty3fHdyBpo35Mz84M8k3heKXmjmi9vFt5` |
+| `humidifi` | HumidiFi | `9H6tua7jkLhdm3w8BvgpTn5LZNU7g4ZynDmCiNN3q6Rp` |
 | `metadao` | MetaDAO | `FUTARELBfJfQ8RDGhg1wdhddq1odMAJUePHFuBYfUxKq` |
 | `meteora` | Meteora | `Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB` |
 | `meteora_damm_v2` | Meteora DAMM v2 | `cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG` |
@@ -61,6 +62,7 @@ dex-pinocchio-cpi/
 | `raydium_cp` | Raydium CP | `CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C` |
 | `raydium_launchlab` | Raydium Launchlab | `LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj` |
 | `saber_decimals` | Saber (Decimals) | `DecZY86MU5Gj7kppfUCEmd4LbXXuyZH1yHaP2NTqdiZB` |
+| `solfi_v2` | SolFi V2 | `SV2EYYJyRz2YhfXwXnhNAevDEui5Q6yrfyo13WtupPF` |
 | `stabble_clmm` | Stabble CLMM | `6dMXqGZ3ga2dikrYS9ovDXgHGh5RUsb2RTUj6hrQXhk6` |
 | `stabble_stable_swap` | Stabble Stable Swap | `swapNyd8XiQwJ6ianp9snpu4brUqFxadzvHebnAXjJZ` |
 | `stabble_weighted_swap` | Stabble Weighted Swap | `swapFpHZwjELNnjvThjajtiVmkz3yPQEHjLtka2fwHW` |

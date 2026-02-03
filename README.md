@@ -2,13 +2,13 @@
 
 [中文文档](./README_CN.md)
 
-Pinocchio-compatible CPI client library for Solana DEX programs. Supports 33 major DEX protocols.
+Pinocchio-compatible CPI client library for Solana DEX programs. Supports 35 major DEX protocols.
 
 ## Features
 
 - **Pure Pinocchio**: Ultra-lightweight implementation
 - **no_std Compatible**: Works in resource-constrained environments
-- **33 DEX Protocols**: Covers major DEXes in the Solana ecosystem
+- **35 DEX Protocols**: Covers major DEXes in the Solana ecosystem
 - **Type-safe**: All instruction arguments have strict type definitions
 
 ## Project Structure
@@ -18,7 +18,7 @@ dex-pinocchio-cpi/
 ├── Cargo.toml              # Project configuration
 ├── README.md               # This document
 ├── README_CN.md            # Chinese documentation
-├── dex_idls/               # IDL source files (33 DEX IDLs)
+├── dex_idls/               # IDL source files (34 DEX IDLs)
 │   ├── Pump_fun.json
 │   ├── Raydium_CLMM.json
 │   ├── Meteora_DLMM.json
@@ -28,7 +28,7 @@ dex-pinocchio-cpi/
     ├── pump_fun.rs         # Pump.fun CPI module
     ├── raydium_clmm.rs     # Raydium CLMM CPI module
     ├── meteora_dlmm.rs     # Meteora DLMM CPI module
-    └── ...                 # 33 DEX modules total
+    └── ...                 # 34 DEX modules total
 ```
 
 ## Supported DEX Protocols
@@ -45,6 +45,7 @@ dex-pinocchio-cpi/
 | `guacswap` | Guacswap | `Gswppe6ERWKpUTXvRPfXdzHhiCyJvLadVvXGfdpBqcE1` |
 | `heaven` | Heaven | `HEAVENoP2qxoeuF8Dj2oT1GHEnu49U5mJYkdeC8BAX2o` |
 | `helium_network` | Helium Network | `treaf4wWBBty3fHdyBpo35Mz84M8k3heKXmjmi9vFt5` |
+| `humidifi` | HumidiFi | `9H6tua7jkLhdm3w8BvgpTn5LZNU7g4ZynDmCiNN3q6Rp` |
 | `metadao` | MetaDAO | `FUTARELBfJfQ8RDGhg1wdhddq1odMAJUePHFuBYfUxKq` |
 | `meteora` | Meteora | `Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB` |
 | `meteora_damm_v2` | Meteora DAMM v2 | `cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG` |
@@ -61,6 +62,7 @@ dex-pinocchio-cpi/
 | `raydium_cp` | Raydium CP | `CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C` |
 | `raydium_launchlab` | Raydium Launchlab | `LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj` |
 | `saber_decimals` | Saber (Decimals) | `DecZY86MU5Gj7kppfUCEmd4LbXXuyZH1yHaP2NTqdiZB` |
+| `solfi_v2` | SolFi V2 | `SV2EYYJyRz2YhfXwXnhNAevDEui5Q6yrfyo13WtupPF` |
 | `stabble_clmm` | Stabble CLMM | `6dMXqGZ3ga2dikrYS9ovDXgHGh5RUsb2RTUj6hrQXhk6` |
 | `stabble_stable_swap` | Stabble Stable Swap | `swapNyd8XiQwJ6ianp9snpu4brUqFxadzvHebnAXjJZ` |
 | `stabble_weighted_swap` | Stabble Weighted Swap | `swapFpHZwjELNnjvThjajtiVmkz3yPQEHjLtka2fwHW` |
